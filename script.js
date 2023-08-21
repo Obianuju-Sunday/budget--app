@@ -11,27 +11,32 @@ var budgetController = (function () {
 // UI CONTROLLER
 var UIController = (function () {
 
+    var DOMStrings = {
+        inputType: '.add__type',
+        inputDescription: '.add__description',
+        inputValue: '.add__value'
+    }
     return {
-        getinput: function () {
-
+        getInput: function () {
             // In order to return three properties same time , we have to make it an object.
-            
+
             return {
-                type: document.querySelector('.add__type').value, // Will be either inc or exp
-                description: document.querySelector('.add__description').value,
-                value: document.querySelector('.add__value').value
+                type: document.querySelector(DOMStrings.inputType).value, // Will be either inc or exp
+                description: document.querySelector(DOMStrings.inputDescription).value,
+                value: document.querySelector(DOMStrings.inputValue).value
             }
         }
     }
-
-})
+})();
 
 
 // GLOBAL APP CONTROLLER
-var AppController = (function (budgetCtrl, UICtrl) {
+var controller = (function (budgetCtrl, UICtrl) {
 
     var ctrlAddItem = function () {
         // 1. Get the field input data
+        var input = UICtrl.getInput();
+        console.log(input);
 
         // 2. Add the item to the budget controller
 
@@ -41,7 +46,6 @@ var AppController = (function (budgetCtrl, UICtrl) {
 
         // 5. Display the budget on the UI
 
-        console.log('It works');
     }
 
     document.querySelector('.add__btn').addEventListener('click', ctrlAddItem)
