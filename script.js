@@ -22,12 +22,15 @@ var budgetController = (function () {
         totals: {
             exp: 0,
             inc: 0
+            
         }
     }
 
     return {
         addItem: function (type, des, val) {
             var newItem, ID;
+
+            console.log(data.allItems[type]);
             
             // Create new ID
             if (data.allItems[type].length > 0) {
@@ -103,14 +106,13 @@ var controller = (function (budgetCtrl, UICtrl) {
 
 
     var ctrlAddItem = function () {
-        var input, newItem;
+        var input;
 
         // 1. Get the field input data
         input = UICtrl.getInput();
 
         // 2. Add the item to the budget controller
-        newItem = budgetCtrl.addItem(input.type, input.description, input.value);
-
+        var newItem = budgetCtrl.addItem(input.type, input.description, input.value);
 
         // 3. Add the item to the UI 
 
@@ -130,7 +132,7 @@ var controller = (function (budgetCtrl, UICtrl) {
 })(budgetController, UIController);
 
 
-controller.init();
+controller.init(); // the only global code
 
 
 
