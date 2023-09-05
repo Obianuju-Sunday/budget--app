@@ -30,7 +30,7 @@ var budgetController = (function () {
         addItem: function (type, des, val) {
             var newItem, ID;
 
-            console.log(data.allItems[type]);
+            // console.log(data.allItems[type]);
             
             // Create new ID
             if (data.allItems[type].length > 0) {
@@ -57,7 +57,6 @@ var budgetController = (function () {
             console.log(data);
         }
     };
-
 })();
 
 
@@ -80,6 +79,22 @@ var UIController = (function () {
                 description: document.querySelector(DOMStrings.inputDescription).value,
                 value: document.querySelector(DOMStrings.inputValue).value
             };
+        },
+
+
+        addListItem: function (obj, type) {
+            
+            // Create HTML string with placeholder text
+
+
+
+            // Replace the placeholder text with some actual data
+
+
+            
+            // Insert the HTML into the DOM
+
+
         },
 
         getDOMStrings: function () {
@@ -106,13 +121,13 @@ var controller = (function (budgetCtrl, UICtrl) {
 
 
     var ctrlAddItem = function () {
-        var input;
+        var input, newItem;
 
         // 1. Get the field input data
         input = UICtrl.getInput();
 
         // 2. Add the item to the budget controller
-        var newItem = budgetCtrl.addItem(input.type, input.description, input.value);
+        newItem = budgetCtrl.addItem(input.type, input.description, input.value);
 
         // 3. Add the item to the UI 
 
